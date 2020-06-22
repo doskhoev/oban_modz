@@ -1,21 +1,16 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import logo from './logo.svg'
-// import './App.css'
 import { Home } from './components/Home'
 import { About } from './components/About'
 import styled from 'styled-components'
+import { AppStore } from './App.store'
+import { observer } from 'mobx-react'
 
 const Wrapper = styled.div`
   text-align: center;
-  & img {
-    height: 40vmin;
-    pointer-events: none;
-    animation: App-logo-spin infinite 120s linear;
-  }
   & header {
-    background-color: #282c34;
-    min-height: 50vh;
+    background-color: #284c65;
+    min-height: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,26 +20,34 @@ const Wrapper = styled.div`
   }
 `
 
-const App: React.FunctionComponent = () => (
-  <Wrapper>
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="spider" />
-      <h1>Гизг - паук</h1>
-    </header>
-    <Router>
-      <div>
-        <Link to="/">Home</Link> <Link to="/about">About</Link>
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  </Wrapper>
-)
+export interface IAppProps {
+  store: AppStore
+}
 
-export default App
+@observer
+export class App extends React.Component<IAppProps> {
+  render() {
+    const { version, upVersion } = this.props.store
+    return (
+      <Wrapper>
+        <header className="App-header">
+          <h1>{version}</h1>
+        </header>
+        <button onClick={upVersion}>up version</button>
+        <Router>
+          <div>
+            <Link to="/">Home</Link> <Link to="/about">About</Link>
+            <Switch>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </Wrapper>
+    )
+  }
+}
