@@ -11,5 +11,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 )
-
-store.version = '0.0.2'

@@ -96,7 +96,6 @@
     "@babel/plugin-proposal-decorators": "^7.10.3",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
-    "mobx-react-devtools": "^6.1.1",
     "prettier": "2.0.5",
     "tslint": "^6.1.2"
   },
