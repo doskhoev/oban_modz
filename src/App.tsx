@@ -1,21 +1,16 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import { Home } from './components/Home'
-import { About } from './components/About'
+import { Home } from './components/MainPage/Home'
+import { About } from './components/About/About'
 import styled from 'styled-components'
 import { AppStore } from './App.store'
 import { observer } from 'mobx-react'
+import { Order } from './components/Order/Order'
 
 const Wrapper = styled.div`
   text-align: center;
   & header {
     background-color: #284c65;
-    min-height: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
     color: white;
   }
 `
@@ -27,22 +22,25 @@ export interface IAppProps {
 @observer
 export class App extends React.Component<IAppProps> {
   render() {
-    const { version, upVersion } = this.props.store
+    const { store } = this.props
     return (
       <Wrapper>
         <header className="App-header">
-          <h1>{version}</h1>
+          <h1>TODO: implement title</h1>
         </header>
-        <button onClick={upVersion}>up version</button>
         <Router>
           <div>
-            <Link to="/">Home</Link> <Link to="/about">About</Link>
+            <Link to="/">Home</Link> <Link to="/about">About</Link>{' '}
+            <Link to="/order">Order</Link>
             <Switch>
               <Route path="/about">
                 <About />
               </Route>
+              <Route path="/order">
+                <Order />
+              </Route>
               <Route path="/">
-                <Home />
+                <Home store={store} />
               </Route>
             </Switch>
           </div>
