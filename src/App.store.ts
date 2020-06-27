@@ -5,12 +5,12 @@ export class AppStore {
   @observable
   public items: IItem[] = []
 
-  @observable
-  public version: string = '0.0.1'
+  // @observable
+  // public version: string = '0.0.1'
 
   constructor() {
     this.getItems().then(res => {
-      this.items = observable(res)
+      this.items = res
     })
   }
 
@@ -23,9 +23,9 @@ export class AppStore {
     ])
   }
 
-  @action.bound
-  public upVersion() {
-    const version = 1 + +this.version.split('.').pop()!
-    this.version = `0.0.${version}`
-  }
+  // @action.bound
+  // public upVersion() {
+  //   const version = 1 + +this.version.split('.').pop()!
+  //   this.version = `0.0.${version}`
+  // }
 }
