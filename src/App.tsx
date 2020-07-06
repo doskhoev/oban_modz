@@ -1,19 +1,11 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Home } from './components/MainPage/Home'
-import { About } from './components/About/About'
-import styled from 'styled-components'
+import { About } from './components/About/About'  
 import { AppStore } from './App.store'
 import { observer } from 'mobx-react'
 import { Order } from './components/Order/Order'
-
-const Wrapper = styled.div`
-  text-align: center;
-  & header {
-    background-color: #284c65;
-    color: white;
-  }
-`
+import { Header } from './components/Header/Header'
 
 export interface IAppProps {
   store: AppStore
@@ -24,14 +16,10 @@ export class App extends React.Component<IAppProps> {
   render() {
     const { store } = this.props
     return (
-      <Wrapper>
-        <header className="App-header">
-          <h1>TODO: implement title</h1>
-        </header>
+      <>
         <Router>
+          <Header />
           <div>
-            <Link to="/">Home</Link> <Link to="/about">About</Link>{' '}
-            <Link to="/order">Order</Link>
             <Switch>
               <Route path="/about">
                 <About />
@@ -45,7 +33,7 @@ export class App extends React.Component<IAppProps> {
             </Switch>
           </div>
         </Router>
-      </Wrapper>
+      </>
     )
   }
 }

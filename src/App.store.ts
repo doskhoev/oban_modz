@@ -17,9 +17,9 @@ export class AppStore {
   @action.bound
   public getItems(): Promise<IItem[]> {
     return Promise.resolve([
-      { id: 1, title: 'Хачапури', size: 'Big' },
-      { id: 2, title: 'Беляш', size: 'Small' },
-      { id: 3, title: 'Самса', size: 'Medium' },
+      { id: 1, title: 'Хачапури', description: 'Очень вкусные', size: 'Big' },
+      { id: 2, title: 'Беляш', description: 'Очень вкусные', size: 'Small' },
+      { id: 3, title: 'Самса', description: 'Очень вкусные', size: 'Medium' },
     ])
   }
 

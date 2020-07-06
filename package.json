@@ -63,6 +63,7 @@
     "semver": "6.3.0",
     "style-loader": "0.23.1",
     "styled-components": "^5.1.1",
+    "tailwindcss": "^1.4.6",
     "terser-webpack-plugin": "2.3.5",
     "ts-pnp": "1.1.6",
     "typescript": "^3.9.5",
@@ -73,8 +74,9 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {
-    "start": "SET PORT=8888 && node scripts/start.js",
+    "start": "SET PORT=8888 && node scripts/start.js",    
     "build": "node scripts/build.js",
+    "build:css": "tailwindcss build src/styles.css -o public/styles.css",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
