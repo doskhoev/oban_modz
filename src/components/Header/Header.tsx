@@ -5,26 +5,26 @@ export class Header extends React.Component {
   render() {
     return (
       <header>
-        <nav>
-          <div>
-            <h1 className="text-2xl font-bold uppercase">
+        <nav className="flex item-center flex-wrap bg-orange-400 p-3 text-white">
+          <div className="flex">
+            <span className="text-2xl font-semibold uppercase">
               <Link to="/">Oban Modz</Link>
-            </h1>
+            </span>
           </div>
-          <ul className="flex">
+          <ul className="flex ml-6 mt-2">
             <li className="mr-6">
               <Link className="text-blue-500 hover:text-blue-800" to="/">
-                Home
+                Главная
               </Link>
             </li>
             <li className="mr-6">
               <Link className="text-blue-500 hover:text-blue-800" to="/order">
-                Order
+                Заказ
               </Link>
             </li>
             <li className="mr-6">
               <Link className="text-blue-500 hover:text-blue-800" to="/about">
-                About
+                О нас
               </Link>
             </li>
           </ul>
