@@ -13,17 +13,17 @@ export class Header extends React.Component {
           </div>
           <ul className="flex ml-6 mt-2">
             <li className="mr-6">
-              <Link className="text-blue-500 hover:text-blue-800" to="/">
+              <Link className="text-white hover:text-blue-800" to="/">
                 Главная
               </Link>
             </li>
             <li className="mr-6">
-              <Link className="text-blue-500 hover:text-blue-800" to="/order">
+              <Link className="text-white hover:text-blue-800" to="/order">
                 Заказ
               </Link>
             </li>
             <li className="mr-6">
-              <Link className="text-blue-500 hover:text-blue-800" to="/about">
+              <Link className="text-white hover:text-blue-800" to="/about">
                 О нас
               </Link>
             </li>

@@ -17,9 +17,37 @@ export class AppStore {
   @action.bound
   public getItems(): Promise<IItem[]> {
     return Promise.resolve([
-      { id: 1, title: 'Хачапури', description: 'Очень вкусные', size: 'Big' },
-      { id: 2, title: 'Беляш', description: 'Очень вкусные', size: 'Small' },
-      { id: 3, title: 'Самса', description: 'Очень вкусные', size: 'Medium' },
+      {
+        id: 1,
+        title: 'Липовый Мёд',
+        description: 'Очень вкусный',
+        prices: [
+          { title: '500 г.', price: 600 },
+          { title: '1000 г.', price: 1000 },
+          { title: '3000 г.', price: 2500 },
+          // { title: '5000 г.', price: 4000 },
+          // { title: '10000 г.', price: 7500 },
+        ],
+      },
+      {
+        id: 2,
+        title: 'Майский Мёд',
+        description: 'С горчинкой',
+        prices: [
+          { title: '500 г.', price: 600 },
+          { title: '1000 г.', price: 1000 },
+        ],
+      },
+      {
+        id: 3,
+        title: 'Горный Мёд',
+        description: 'Очень полезный',
+        prices: [
+          { title: '500 г.', price: 600 },
+          { title: '1000 г.', price: 1000 },
+          { title: '3000 г.', price: 2500 },
+        ],
+      },
     ])
   }
 

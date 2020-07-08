@@ -2,8 +2,11 @@ export interface IItem {
   id: number
   title: string
   description?: string
-  size: TItemSize
+  prices: IPrice[]
   imageUrl?: string
 }
 
-type TItemSize = 'Small' | 'Medium' | 'Big'
+export interface IPrice {
+  title: string
+  price: number
+}
