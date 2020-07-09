@@ -3,8 +3,8 @@ import React from 'react'
 export class Order extends React.Component {
   render() {
     return (
-      <div>
-        <h1>Order</h1>
+      <div className="font-light text-center m-10 text-lg">
+        <h1>Пока что тут пусто</h1>
       </div>
     )
   }

@@ -12,7 +12,7 @@ export class Home extends React.Component<IHomeProps> {
   render() {
     const { items } = this.props.store
     return (
-      <div className="flex p-4 justify-center">
+      <div className="flex p-4 justify-center flex-wrap">
         {items.map(item => {
           return <Card key={item.id} {...item} />
         })}

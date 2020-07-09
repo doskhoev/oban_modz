@@ -2,11 +2,11 @@ export interface IItem {
   id: number
   title: string
   description?: string
-  prices: IPrice[]
+  types: IType[]  
   imageUrl?: string
 }
 
-export interface IPrice {
+export interface IType {
   title: string
   price: number
 }
