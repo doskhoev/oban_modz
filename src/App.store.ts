@@ -1,9 +1,12 @@
-import { observable, action } from 'mobx'
+import { observable, action, computed } from 'mobx'
 import { IItem } from './App.interface'
 
 export class AppStore {
   @observable
   public items: IItem[] = []
+
+  @observable
+  public currentPath: string = ''
 
   // @observable
   // public version: string = '0.0.1'

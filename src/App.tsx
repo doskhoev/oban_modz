@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Home } from './components/MainPage/Home'
-import { About } from './components/About/About'  
+import { About } from './components/About/About'
 import { AppStore } from './App.store'
 import { observer } from 'mobx-react'
 import { Order } from './components/Order/Order'
@@ -18,14 +18,14 @@ export class App extends React.Component<IAppProps> {
     return (
       <>
         <Router>
-          <Header />
+          <Header store={store} />
           <div>
             <Switch>
               <Route path="/about">
-                <About />
+                <About store={store} />
               </Route>
               <Route path="/order">
-                <Order />
+                <Order store={store} />
               </Route>
               <Route path="/">
                 <Home store={store} />

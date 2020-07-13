@@ -1,7 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { AppStore } from '../../App.store'
+import { observer } from 'mobx-react'
 
-export class Header extends React.Component {
+export interface IHeaderProps {
+  store: AppStore
+}
+
+@observer
+export class Header extends React.Component<IHeaderProps> {
   render() {
     return (
       <header>
@@ -27,20 +34,38 @@ export class Header extends React.Component {
               </span>
             </Link>
           </span>
-          <ul className="flex ml-6 mt-2">
-            <li className="mr-6">
-              <Link className="text-white hover:text-blue-800" to="/">
+          <ul className={`flex ml-6 mt-1`}>
+            <li
+              className={`px-3 py-1  ${
+                this.props.store.currentPath === '/'
+                  ? 'bg-orange-500 rounded-lg'
+                  : ''
+              }`}
+            >
+              <Link className={`text-white hover:text-blue-800`} to="/">
                 Главная
               </Link>
             </li>
-            <li className="mr-6">
+            <li
+              className={`px-3 py-1  ${
+                this.props.store.currentPath === '/order'
+                  ? 'bg-orange-500 rounded-lg'
+                  : ''
+              }`}
+            >
               <Link className="text-white hover:text-blue-800" to="/order">
                 Заказ
               </Link>
             </li>
-            <li className="mr-6">
+            <li
+              className={`px-3 py-1  ${
+                this.props.store.currentPath === '/about'
+                  ? 'bg-orange-500 rounded-lg'
+                  : ''
+              }`}
+            >
               <Link className="text-white hover:text-blue-800" to="/about">
-                О нас
+                Кто мы такие
               </Link>
             </li>
           </ul>

@@ -9,6 +9,11 @@ interface IHomeProps {
 
 @observer
 export class Home extends React.Component<IHomeProps> {
+  constructor(props: IHomeProps) {
+    super(props)
+    this.props.store.currentPath = '/'
+  }
+
   render() {
     const { items } = this.props.store
     return (
