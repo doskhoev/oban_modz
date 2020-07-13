@@ -9,6 +9,12 @@ export interface IHeaderProps {
 
 @observer
 export class Header extends React.Component<IHeaderProps> {
+  private menu = [
+    { title: 'Главная', routeTo: '/' },
+    { title: 'Заказ', routeTo: '/order' },
+    { title: 'Кто мы такие', routeTo: '/about' },
+  ]
+
   render() {
     return (
       <header>
@@ -35,39 +41,22 @@ export class Header extends React.Component<IHeaderProps> {
             </Link>
           </span>
           <ul className={`flex ml-6 mt-1`}>
-            <li
-              className={`px-3 py-1  ${
-                this.props.store.currentPath === '/'
-                  ? 'bg-orange-500 rounded-lg'
-                  : ''
-              }`}
-            >
-              <Link className={`text-white hover:text-blue-800`} to="/">
-                Главная
-              </Link>
-            </li>
-            <li
-              className={`px-3 py-1  ${
-                this.props.store.currentPath === '/order'
-                  ? 'bg-orange-500 rounded-lg'
-                  : ''
-              }`}
-            >
-              <Link className="text-white hover:text-blue-800" to="/order">
-                Заказ
-              </Link>
-            </li>
-            <li
-              className={`px-3 py-1  ${
-                this.props.store.currentPath === '/about'
-                  ? 'bg-orange-500 rounded-lg'
-                  : ''
-              }`}
-            >
-              <Link className="text-white hover:text-blue-800" to="/about">
-                Кто мы такие
-              </Link>
-            </li>
+            {this.menu.map(item => (
+              <li
+                className={`px-3 py-1  ${
+                  this.props.store.currentPath === item.routeTo
+                    ? 'bg-orange-500 rounded-lg'
+                    : ''
+                }`}
+              >
+                <Link
+                  className={`text-white hover:text-blue-800`}
+                  to={item.routeTo}
+                >
+                  {item.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </header>
