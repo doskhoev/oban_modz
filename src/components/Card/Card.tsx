@@ -26,15 +26,15 @@ export class Card extends React.Component<ICardProps> {
     return (
       <div
         className={
-          'relative max-w-sm min-w-sm rounded overflow-hidden shadow-lg m-4 border'
+          'relative bg-white rounded-xl overflow-hidden shadow-lg max-w-sm min-w-sm m-4 border '
         }
       >
         <img
           className={'w-full'}
-          src="/img/bee.png"
+          src={this.props.imageUrl || '/img/bee.png'}
           alt="Sunset in the mountains"
         />
-        <div className={'px-6 py-4'}>
+        <div className={'mx-6 my-4'}>
           <div
             className={
               'font-semibold text-xl border-b border-orange-200 mb-2 text-center'
@@ -65,7 +65,7 @@ export class Card extends React.Component<ICardProps> {
           </div>
           <div
             className={
-              'absolute top-0 left-0 w-1/3 text-center p-1 text-4xl bg-orange-600 text-white mr-auto rounded-br-2xl border-r border-b border-orange-400'
+              'absolute top-0 left-0 w-2/5 text-center p-1 text-4xl bg-orange-600 text-white mr-auto rounded-br-2xl border-r border-b border-orange-400'
             }
           >
             {this.types.length && this.types[this.selectedTypeIndex].price} ₽

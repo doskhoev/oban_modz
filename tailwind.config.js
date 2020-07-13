@@ -3,8 +3,11 @@ module.exports = {
   theme: {
     extend: {
       borderRadius: {
-        xl: '1rem',
-        '2xl': '2rem',
+        xl: '0.75rem',
+        '2xl': '1.5rem',
+      },
+      fontFamily: {
+        body: ['Nunito'],
       },
     },
   },

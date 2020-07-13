@@ -20,6 +20,7 @@ export class AppStore {
       {
         id: 1,
         title: 'Липовый Мёд',
+        imageUrl: '/img/bee.png',
         description: 'Очень вкусный',
         types: [
           { title: 'Пол кило', price: 600 },
@@ -32,6 +33,7 @@ export class AppStore {
       {
         id: 2,
         title: 'Майский Мёд',
+        imageUrl: '/img/bee.png',
         description: 'С горчинкой',
         types: [
           { title: '500 г.', price: 600 },
@@ -42,6 +44,7 @@ export class AppStore {
         id: 3,
         title: 'Горный Мёд',
         description: 'Очень полезный',
+        imageUrl: '/img/bee.png',
         types: [
           { title: '500 г.', price: 600 },
           { title: '1000 г.', price: 1000 },
@@ -52,6 +55,7 @@ export class AppStore {
         id: 4,
         title: 'Майский Мёд',
         description: 'С горчинкой',
+        imageUrl: '/img/bee.png',
         types: [
           { title: '500 г.', price: 600 },
           { title: '1000 г.', price: 1000 },
@@ -61,6 +65,7 @@ export class AppStore {
         id: 5,
         title: 'Горный Мёд',
         description: 'Очень полезный',
+        imageUrl: '/img/bee.png',
         types: [
           { title: '500 г.', price: 600 },
           { title: '1000 г.', price: 1000 },
@@ -71,6 +76,7 @@ export class AppStore {
         id: 6,
         title: 'Майский Мёд',
         description: 'С горчинкой',
+        imageUrl: '/img/bee.png',
         types: [
           { title: '500 г.', price: 600 },
           { title: '1000 г.', price: 1000 },
@@ -80,6 +86,7 @@ export class AppStore {
         id: 7,
         title: 'Горный Мёд',
         description: 'Очень полезный',
+        imageUrl: '/img/bee.png',
         types: [
           { title: '500 г.', price: 600 },
           { title: '1000 г.', price: 1000 },
