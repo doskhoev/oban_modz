@@ -15,10 +15,17 @@ export class AppStore {
   }
 
   @action.bound
+  public onAddToTheBasket(id: string, typeIndex: number) {
+    const item = this.items.find(item => item.id === id)
+
+    console.log(item && item.title)
+  }
+
+  @action.bound
   public getItems(): Promise<IItem[]> {
     const items: IItem[] = [
       {
-        id: 1,
+        id: '1',
         title: 'Липовый Мёд',
         imageUrl: '/img/bee.png',
         description: 'Очень вкусный',
@@ -31,7 +38,7 @@ export class AppStore {
         ],
       },
       {
-        id: 2,
+        id: '2',
         title: 'Майский Мёд',
         imageUrl: '/img/bee.png',
         description: 'С горчинкой',
@@ -41,7 +48,7 @@ export class AppStore {
         ],
       },
       {
-        id: 3,
+        id: '3',
         title: 'Горный Мёд',
         description: 'Очень полезный',
         imageUrl: '/img/bee.png',
@@ -52,7 +59,7 @@ export class AppStore {
         ],
       },
       {
-        id: 4,
+        id: '4',
         title: 'Майский Мёд',
         description: 'С горчинкой',
         imageUrl: '/img/bee.png',
@@ -62,7 +69,7 @@ export class AppStore {
         ],
       },
       {
-        id: 5,
+        id: '5',
         title: 'Горный Мёд',
         description: 'Очень полезный',
         imageUrl: '/img/bee.png',
@@ -73,7 +80,7 @@ export class AppStore {
         ],
       },
       {
-        id: 6,
+        id: '6',
         title: 'Майский Мёд',
         description: 'С горчинкой',
         imageUrl: '/img/bee.png',
@@ -83,7 +90,7 @@ export class AppStore {
         ],
       },
       {
-        id: 7,
+        id: '7',
         title: 'Горный Мёд',
         description: 'Очень полезный',
         imageUrl: '/img/bee.png',
@@ -94,7 +101,7 @@ export class AppStore {
         ],
       },
       {
-        id: 8,
+        id: '8',
         title: 'Горный Мёд',
         description: 'Очень полезный',
         types: [

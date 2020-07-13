@@ -19,7 +19,13 @@ export class Home extends React.Component<IHomeProps> {
     return (
       <div className="flex p-4 justify-center flex-wrap">
         {items.map(item => {
-          return <Card key={item.id} {...item} />
+          return (
+            <Card
+              key={item.id}
+              {...item}
+              onAdd={this.props.store.onAddToTheBasket}
+            />
+          )
         })}
       </div>
     )

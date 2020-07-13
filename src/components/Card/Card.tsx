@@ -2,8 +2,11 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import { IItem, IType } from '../../App.interface'
 import { observable, action } from 'mobx'
+import { basketSvg } from '../../resources'
 
-interface ICardProps extends IItem {}
+interface ICardProps extends IItem {
+  onAdd: (id: string, typeIndex: number) => void
+}
 
 @observer
 export class Card extends React.Component<ICardProps> {
@@ -22,15 +25,20 @@ export class Card extends React.Component<ICardProps> {
     this.selectedTypeIndex = index
   }
 
+  @action.bound
+  private onClickBasket() {
+    this.props.onAdd(this.props.id, this.selectedTypeIndex)
+  }
+
   render() {
     return (
       <div
         className={
-          'relative bg-white rounded-xl overflow-hidden shadow-lg max-w-sm min-w-sm m-4 border '
+          'relative bg-white rounded-xl overflow-hidden shadow-lg max-w-sm min-w-sm m-4'
         }
       >
         <img
-          className={'w-full'}
+          className={'w-full h-64 object-cover'}
           src={this.props.imageUrl || '/img/bee.png'}
           alt="Sunset in the mountains"
         />
@@ -65,10 +73,19 @@ export class Card extends React.Component<ICardProps> {
           </div>
           <div
             className={
-              'absolute top-0 left-0 w-2/5 text-center p-1 text-4xl bg-orange-600 text-white mr-auto rounded-br-2xl border-r border-b border-orange-400'
+              'absolute top-0 left-0 w-2/5 text-center p-1 text-4xl bg-orange-600 text-white mr-auto rounded-br-2xl'
             }
           >
             {this.types.length && this.types[this.selectedTypeIndex].price} ₽
+          </div>
+
+          <div className="absolute top-0 right-0 flex items-center justify-center">
+            <button
+              className="bg-green-500 hover:bg-green-700 py-2 px-4 m-2 rounded"
+              onClick={() => this.onClickBasket()}
+            >
+              {basketSvg} 
+            </button>
           </div>
         </div>
       </div>
