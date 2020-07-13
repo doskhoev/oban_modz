@@ -1,4 +1,4 @@
-import { observable, action, computed } from 'mobx'
+import { observable, action } from 'mobx'
 import { IItem } from './App.interface'
 
 export class AppStore {
@@ -7,9 +7,6 @@ export class AppStore {
 
   @observable
   public currentPath: string = ''
-
-  // @observable
-  // public version: string = '0.0.1'
 
   constructor() {
     this.getItems().then(res => {
