@@ -1,11 +1,11 @@
 import React from 'react'
 import { observer } from 'mobx-react'
-import { IItem, IType } from '../../App.interface'
+import { IItem, IType, IBasketItem } from '../../App.interface'
 import { observable, action } from 'mobx'
 import { basketSvg } from '../../resources'
 
 interface ICardProps extends IItem {
-  onAdd: (id: string, typeIndex: number) => void
+  onAdd: (item: IBasketItem) => void
 }
 
 @observer
@@ -27,7 +27,16 @@ export class Card extends React.Component<ICardProps> {
 
   @action.bound
   private onClickBasket() {
-    this.props.onAdd(this.props.id, this.selectedTypeIndex)
+    const { id, title, description, imageUrl } = this.props
+    const type = this.props.types[this.selectedTypeIndex]
+    const basketItem = {
+      id,
+      title,
+      description,
+      imageUrl,
+      type,
+    }
+    this.props.onAdd(basketItem)
   }
 
   render() {
@@ -73,7 +82,7 @@ export class Card extends React.Component<ICardProps> {
           </div>
           <div
             className={
-              'absolute top-0 left-0 w-2/5 text-center p-1 text-4xl bg-orange-600 text-white mr-auto rounded-br-2xl'
+              'absolute top-0 left-0 w-1/3 text-center p-1 text-xl bg-gray-500 font-semibold text-white mr-auto rounded-br-xl'
             }
           >
             {this.types.length && this.types[this.selectedTypeIndex].price} ₽

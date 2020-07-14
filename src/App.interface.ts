@@ -1,9 +1,12 @@
-export interface IItem {
+interface IBaseItem {
   id: string
   title: string
   description?: string
-  types: IType[]
   imageUrl?: string
+}
+
+export interface IItem extends IBaseItem {
+  types: IType[]
 }
 
 export interface IType {
@@ -12,7 +15,6 @@ export interface IType {
   imageUrl?: string
 }
 
-export interface IBasketItem {
-  itemId: string
-  typeIndex: number
+export interface IBasketItem extends IBaseItem {
+  type: IType
 }

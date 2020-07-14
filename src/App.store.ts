@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx'
+import { observable, action, computed } from 'mobx'
 import { IItem, IBasketItem } from './App.interface'
 
 export class AppStore {
@@ -17,9 +17,16 @@ export class AppStore {
     })
   }
 
+  @computed
+  public get finalSum() {
+    return this.basketItems.reduce((sum, cur) => {
+      return sum + cur.type.price
+    }, 0)
+  }
+
   @action.bound
-  public onAddToTheBasket(itemId: string, typeIndex: number) {
-    this.basketItems.push({ itemId, typeIndex })
+  public onAddToTheBasket(item: IBasketItem) {
+    this.basketItems.push(item)
   }
 
   @action.bound
