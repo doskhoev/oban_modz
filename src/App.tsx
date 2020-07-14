@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Home } from './components/MainPage/Home'
 import { About } from './components/About/About'
 import { AppStore } from './App.store'
-import { observer } from 'mobx-react'
+import { observer, Provider } from 'mobx-react'
 import { Order } from './components/Order/Order'
 import { Header } from './components/Header/Header'
 
@@ -16,7 +16,7 @@ export class App extends React.Component<IAppProps> {
   render() {
     const { store } = this.props
     return (
-      <>
+      <Provider store={store}>
         <Router>
           <Header store={store} />
           <div>
@@ -33,7 +33,7 @@ export class App extends React.Component<IAppProps> {
             </Switch>
           </div>
         </Router>
-      </>
+      </Provider>
     )
   }
 }

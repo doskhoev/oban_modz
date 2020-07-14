@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { AppStore } from '../../App.store'
 import { observer } from 'mobx-react'
 import { logoSvg } from '../../resources'
+import { Basket } from './components/Basket'
 
 export interface IHeaderProps {
   store: AppStore
@@ -28,7 +29,7 @@ export class Header extends React.Component<IHeaderProps> {
               </span>
             </Link>
           </span>
-          <ul className={`flex ml-6 mt-1`}>
+          <ul className={`flex ml-6 mt-1 flex-grow`}>
             {this.menu.map(item => (
               <li
                 key={`${item.id}`}
@@ -47,6 +48,8 @@ export class Header extends React.Component<IHeaderProps> {
               </li>
             ))}
           </ul>
+
+          <Basket />
         </nav>
       </header>
     )
