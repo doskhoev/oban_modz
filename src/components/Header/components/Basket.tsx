@@ -16,14 +16,22 @@ export class Basket extends React.Component<IBasketProps> {
   render() {
     return (
       <Link to="/order">
-        <button className="bg-indigo-500 hover:bg-indigo-600 rounded-full focus:outline-none px-2 py-1">
-          {basketSvg}
-          {this.store.basketItems.length ? (
-            <span className="px-1 bg-red-600 rounded-full">
-              {this.store.basketItems.length}
-            </span>
-          ) : null}
-        </button>
+        <div
+          className={`p-1 ${
+            this.store.currentPath === '/order'
+              ? 'bg-orange-500 rounded-full'
+              : ''
+          }`}
+        >
+          <button className="bg-indigo-500 hover:bg-indigo-600 rounded-full focus:outline-none px-2 py-0">
+            {basketSvg}
+            {this.store.basketItems.length ? (
+              <span className="px-1 bg-red-600 rounded-full">
+                {this.store.basketItems.length}
+              </span>
+            ) : null}
+          </button>
+        </div>
       </Link>
     )
   }

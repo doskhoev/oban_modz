@@ -13,7 +13,7 @@ export interface IHeaderProps {
 export class Header extends React.Component<IHeaderProps> {
   private menu = [
     { id: 'main', title: 'Главная', routeTo: '/' },
-    { id: 'order', title: 'Заказ', routeTo: '/order' },
+    // { id: 'order', title: 'Заказ', routeTo: '/order' },
     { id: 'about', title: 'Кто мы такие', routeTo: '/about' },
   ]
 

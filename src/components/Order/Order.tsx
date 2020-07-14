@@ -1,22 +1,25 @@
 import React from 'react'
 import { AppStore } from '../../App.store'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 
-export interface IOrderProps {
-  store: AppStore
-}
+export interface IOrderProps {}
 
+@inject('store')
 @observer
 export class Order extends React.Component<IOrderProps> {
   constructor(props: IOrderProps) {
     super(props)
-    this.props.store.currentPath = '/order'
+    this.store.currentPath = '/order'
+  }
+
+  private get store() {
+    return (this.props as { store: AppStore }).store
   }
 
   render() {
     return (
       <div className="font-light text-center m-10 text-lg">
-        <h1>Пока что тут пусто</h1>
+        Пока что тут пусто
       </div>
     )
   }
