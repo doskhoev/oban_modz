@@ -81,7 +81,7 @@ export class Card extends React.Component<ICardProps> {
 
           <div className="absolute top-0 right-0 flex items-center justify-center">
             <button
-              className="bg-green-500 hover:bg-green-700 py-2 px-4 m-2 rounded"
+              className="bg-green-500 hover:bg-green-700 py-2 px-4 m-2 rounded focus:outline-none"
               onClick={() => this.onClickBasket()}
             >
               {basketSvg} 

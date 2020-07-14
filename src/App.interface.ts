@@ -11,3 +11,9 @@ export interface IType {
   price: number
   imageUrl?: string
 }
+
+export interface IBasketItem {
+  itemId: string
+  typeIndex: number
+  count: number
+}

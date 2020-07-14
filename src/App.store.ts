@@ -1,9 +1,12 @@
 import { observable, action } from 'mobx'
-import { IItem } from './App.interface'
+import { IItem, IBasketItem } from './App.interface'
 
 export class AppStore {
   @observable
   public items: IItem[] = []
+
+  @observable
+  public basketItems: IBasketItem[] = []
 
   @observable
   public currentPath: string = ''
@@ -15,10 +18,19 @@ export class AppStore {
   }
 
   @action.bound
-  public onAddToTheBasket(id: string, typeIndex: number) {
-    const item = this.items.find(item => item.id === id)
+  public onAddToTheBasket(itemId: string, typeIndex: number) {
+    const item = this.items.find(item => item.id === itemId)
 
-    console.log(item && item.title)
+    if (item) {
+      const bItem = this.basketItems.find(
+        item => item.itemId === itemId && item.typeIndex === typeIndex
+      )
+      if (bItem) {
+        bItem.count += 1
+      } else {
+        this.basketItems.push({ itemId, typeIndex, count: 1 })
+      }
+    }
   }
 
   @action.bound
