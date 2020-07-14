@@ -15,5 +15,4 @@ export interface IType {
 export interface IBasketItem {
   itemId: string
   typeIndex: number
-  count: number
 }

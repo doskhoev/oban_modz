@@ -19,18 +19,7 @@ export class AppStore {
 
   @action.bound
   public onAddToTheBasket(itemId: string, typeIndex: number) {
-    const item = this.items.find(item => item.id === itemId)
-
-    if (item) {
-      const bItem = this.basketItems.find(
-        item => item.itemId === itemId && item.typeIndex === typeIndex
-      )
-      if (bItem) {
-        bItem.count += 1
-      } else {
-        this.basketItems.push({ itemId, typeIndex, count: 1 })
-      }
-    }
+    this.basketItems.push({ itemId, typeIndex })
   }
 
   @action.bound
