@@ -27,3 +27,25 @@ export const basketSvg = (
     />
   </svg>
 )
+
+export const littleArrowUp = (
+  <svg
+    width="12"
+    height="8"
+    viewBox="0 0 12 8"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M1 7L6 2L11 7" />
+  </svg>
+)
+
+export const littleArrowDown = (
+  <svg
+    width="12"
+    height="8"
+    viewBox="0 0 12 8"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M1 2L6 7L11 2" />
+  </svg>
+)

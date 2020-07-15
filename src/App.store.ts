@@ -25,8 +25,17 @@ export class AppStore {
   }
 
   @action.bound
-  public onAddToTheBasket(item: IBasketItem) {
+  public addItemToBasket(item: IBasketItem) {
     this.basketItems.push(item)
+  }
+
+  @action.bound
+  public removeItemFromBasket(item: IBasketItem) {
+    const basketItem = this.basketItems.find(i => i.id === item.id)
+    if (basketItem) {
+      const index = this.basketItems.indexOf(basketItem)
+      this.basketItems.splice(index, 1)
+    }
   }
 
   @action.bound

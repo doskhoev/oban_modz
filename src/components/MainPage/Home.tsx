@@ -23,7 +23,7 @@ export class Home extends React.Component<IHomeProps> {
             <Card
               key={item.id}
               {...item}
-              onAdd={this.props.store.onAddToTheBasket}
+              onAdd={this.props.store.addItemToBasket}
             />
           )
         })}

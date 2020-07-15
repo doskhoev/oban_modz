@@ -3,6 +3,7 @@ import { AppStore } from '../../App.store'
 import { observer, inject } from 'mobx-react'
 import { action } from 'mobx'
 import { IBasketItem } from '../../App.interface'
+import { OrderItem, IOrderItemProps } from './OrderItem'
 
 interface ITmp {
   id: string
@@ -30,6 +31,16 @@ export class Order extends React.Component<IOrderProps> {
     alert('TODO')
   }
 
+  @action.bound
+  private onAddCount(item: IOrderItemProps) {
+    this.store.addItemToBasket(item as IBasketItem)
+  }
+
+  @action.bound
+  private onRemoveCount(item: IOrderItemProps) {
+    this.store.removeItemFromBasket(item as IBasketItem)
+  }
+
   render() {
     const items = this.store.basketItems
       .reduce((arr, cur) => {
@@ -42,17 +53,14 @@ export class Order extends React.Component<IOrderProps> {
           arr.push({ ...cur, count: 1 })
         }
         return arr
-      }, [] as (IBasketItem & { count: number })[])
+      }, [] as IOrderItemProps[])
       .map(item => {
         return (
-          <div className="flex rounded bg-indigo-300 m-1 p-2 text-white">
-            <div className="w-1/6">{item.title}</div>
-            <div className="w-1/6">{item.description}</div>
-            <div className="w-1/6">{item.type.title}</div>
-            <div className="w-1/6">{item.type.price} ₽ за шт.</div>
-            <div className="w-1/6">{item.count} шт.</div>
-            <div className="w-1/6">{item.type.price * item.count} ₽</div>
-          </div>
+          <OrderItem
+            {...item}
+            addCount={this.onAddCount}
+            removeCount={this.onRemoveCount}
+          />
         )
       })
 
