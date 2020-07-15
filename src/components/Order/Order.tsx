@@ -41,6 +41,11 @@ export class Order extends React.Component<IOrderProps> {
     this.store.removeItemFromBasket(item as IBasketItem)
   }
 
+  @action.bound
+  private onRemoveItem(item: IOrderItemProps) {
+    this.store.removeItemFromBasket(item as IBasketItem, true)
+  }
+
   render() {
     const items = this.store.basketItems
       .reduce((arr, cur) => {
@@ -54,12 +59,14 @@ export class Order extends React.Component<IOrderProps> {
         }
         return arr
       }, [] as IOrderItemProps[])
-      .map(item => {
+      .map((item, index) => {
         return (
           <OrderItem
+            key={`order_item_${index}`}
             {...item}
             addCount={this.onAddCount}
             removeCount={this.onRemoveCount}
+            removeItem={this.onRemoveItem}
           />
         )
       })

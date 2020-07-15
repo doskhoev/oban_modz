@@ -30,10 +30,15 @@ export class AppStore {
   }
 
   @action.bound
-  public removeItemFromBasket(item: IBasketItem) {
-    const basketItem = this.basketItems.find(i => i.id === item.id)
-    if (basketItem) {
-      const index = this.basketItems.indexOf(basketItem)
+  public removeItemFromBasket(
+    item: IBasketItem,
+    removeAllItems: boolean = false
+  ) {
+    const basketItems = this.basketItems.filter(i => i.id === item.id)
+    if (removeAllItems) {
+      this.basketItems = this.basketItems.filter(i => i.id !== item.id)
+    } else if (basketItems.length > 1) {
+      const index = this.basketItems.indexOf(basketItems[0])
       this.basketItems.splice(index, 1)
     }
   }
