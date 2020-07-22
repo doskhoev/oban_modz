@@ -7,7 +7,7 @@
   @apply relative bg-white rounded-xl overflow-hidden shadow-lg m-4;
 }
 
-.active {
+nav .active {
   @apply bg-orange-500 rounded-lg;
 }
 

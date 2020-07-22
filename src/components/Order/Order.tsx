@@ -23,7 +23,9 @@ export class Order extends React.Component<IOrderProps> {
 
   @action.bound
   private onClickMakeOrder() {
-    alert('TODO')
+    alert(
+      'TODO: Сформировать заказ. Сообщить клиенту, что с ним скоро свяжутся для уточнения заказа.'
+    )
   }
 
   @action.bound
@@ -43,6 +45,9 @@ export class Order extends React.Component<IOrderProps> {
 
   render() {
     const items = this.store.basketItems
+      .sort((a, b) =>
+        a.title + a.type.title < b.title + b.type.title ? -1 : 1
+      )
       .reduce((arr, cur) => {
         const findItem = arr.find(
           item => item.title === cur.title && item.type.title === cur.type.title

@@ -31,9 +31,13 @@ export class AppStore {
     item: IBasketItem,
     removeAllItems: boolean = false
   ) {
-    const basketItems = this.basketItems.filter(i => i.id === item.id)
+    const basketItems = this.basketItems.filter(
+      i => i.id === item.id && i.type.title === item.type.title
+    )
     if (removeAllItems) {
-      this.basketItems = this.basketItems.filter(i => i.id !== item.id)
+      this.basketItems = this.basketItems.filter(
+        i => i.id !== item.id || i.type.title !== item.type.title
+      )
     } else if (basketItems.length > 1) {
       const index = this.basketItems.indexOf(basketItems[0])
       this.basketItems.splice(index, 1)
