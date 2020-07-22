@@ -30,9 +30,7 @@ export class App extends React.Component<IAppProps> {
             <Route path="/order">
               <Order />
             </Route>
-            <Route path="/contacts">
-              <Contacts />
-            </Route>
+            <Route path="/contacts" component={Contacts} />
           </>
         </BrowserRouter>
       </Provider>
