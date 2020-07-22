@@ -15,6 +15,7 @@ export class Header extends React.Component<IHeaderProps> {
     { id: 'main', title: 'Главная', routeTo: '/' },
     // { id: 'order', title: 'Заказ', routeTo: '/order' },
     { id: 'about', title: 'Кто мы такие', routeTo: '/about' },
+    { id: 'contacts', title: 'Контакты', routeTo: '/contacts' },
   ]
 
   render() {

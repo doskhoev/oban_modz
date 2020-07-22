@@ -6,6 +6,7 @@ import { AppStore } from './App.store'
 import { observer, Provider } from 'mobx-react'
 import { Order } from './components/Order/Order'
 import { Header } from './components/Header/Header'
+import { Contacts } from './components/Contacts/Contacts'
 
 export interface IAppProps {
   store: AppStore
@@ -28,6 +29,9 @@ export class App extends React.Component<IAppProps> {
             </Route>
             <Route path="/order">
               <Order />
+            </Route>
+            <Route path="/contacts">
+              <Contacts />
             </Route>
           </>
         </BrowserRouter>
