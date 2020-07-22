@@ -8,9 +8,6 @@ export class AppStore {
   @observable
   public basketItems: IBasketItem[] = []
 
-  @observable
-  public currentPath: string = ''
-
   constructor() {
     this.getItems().then(res => {
       this.items = res

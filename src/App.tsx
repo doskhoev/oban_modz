@@ -25,7 +25,7 @@ export class App extends React.Component<IAppProps> {
               <Home store={store} />
             </Route>
             <Route path="/about">
-              <About store={store} />
+              <About />
             </Route>
             <Route path="/order">
               <Order />

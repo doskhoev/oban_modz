@@ -9,14 +9,9 @@ interface IHomeProps {
 
 @observer
 export class Home extends React.Component<IHomeProps> {
-  constructor(props: IHomeProps) {
-    super(props)
-    this.props.store.currentPath = '/'
-  }
-
   render() {
     const { items } = this.props.store
-    return (      
+    return (
       <div className="p-4 grid md:grid-cols-2 lg:grid-cols-3">
         {items.map(item => {
           return (
