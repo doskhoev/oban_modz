@@ -3,11 +3,12 @@
 @tailwind base;
 @tailwind components;
 
-.btn-blue {
-  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+.card {
+  @apply relative bg-white rounded-xl overflow-hidden shadow-lg m-4;
 }
-.btn-blue:hover {
-  @apply bg-blue-700;
+
+.active {
+  @apply bg-orange-500 rounded-lg;
 }
 
 @tailwind utilities;

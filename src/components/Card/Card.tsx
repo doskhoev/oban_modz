@@ -41,11 +41,7 @@ export class Card extends React.Component<ICardProps> {
 
   render() {
     return (
-      <div
-        className={
-          'relative bg-white rounded-xl overflow-hidden shadow-lg max-w-sm min-w-sm m-4'
-        }
-      >
+      <div className="card">
         <img
           className={'w-full h-64 object-cover'}
           src={this.props.imageUrl || '/img/bee.png'}
@@ -65,14 +61,14 @@ export class Card extends React.Component<ICardProps> {
           <div className="flex flex-wrap justify-center">
             {this.types.map((item, index) => {
               return (
-                <div key={`type_${index}`} className={`w-1/3`}>
+                <div key={`type_${index}`} className="">
                   <div
                     onClick={() => this.onClickTypeSelect(index)}
                     className={`${
                       this.selectedTypeIndex === index
                         ? 'bg-gray-500 text-white'
                         : 'bg-gray-300 text-gray-500'
-                    } hover:bg-gray-600 hover:text-white rounded mr-1 mb-1 p-1 text-center cursor-pointer`}
+                    } hover:bg-gray-600 hover:text-white rounded mr-1 mb-1 px-2 py-1 text-center cursor-pointer`}
                   >
                     {item.title}
                   </div>

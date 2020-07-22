@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { AppStore } from '../../App.store'
 import { observer } from 'mobx-react'
 import { logoSvg } from '../../resources'
-import { Basket } from './components/Basket'
+import { Basket } from './Basket'
 
 export interface IHeaderProps {
   store: AppStore
@@ -29,23 +29,16 @@ export class Header extends React.Component<IHeaderProps> {
               </span>
             </Link>
           </span>
-          <ul className={`flex ml-6 mt-1 flex-grow`}>
+          <ul className={`flex ml-6 flex-grow items-center`}>
             {this.menu.map(item => (
-              <li
+              <NavLink
+                exact={true}
                 key={`${item.id}`}
-                className={`px-3 py-1  ${
-                  this.props.store.currentPath === item.routeTo
-                    ? 'bg-orange-500 rounded-lg'
-                    : ''
-                }`}
+                className={`px-2 py-1 text-white hover:text-blue-800 m-px`}
+                to={item.routeTo}
               >
-                <Link
-                  className={`text-white hover:text-blue-800`}
-                  to={item.routeTo}
-                >
-                  {item.title}
-                </Link>
-              </li>
+                {item.title}
+              </NavLink>
             ))}
           </ul>
 
