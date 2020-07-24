@@ -3,12 +3,10 @@
 @tailwind base;
 @tailwind components;
 
-.card {
-  @apply relative bg-white rounded-xl overflow-hidden shadow-lg m-4;
-}
-
 nav .active {
-  @apply bg-orange-500 rounded-lg;
+  /* @apply bg-orange-500 rounded-lg; */
+  background-color: #ED8936;
+  border-radius: 7px;
 }
 
 @tailwind utilities;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Home } from './components/MainPage/Home'
 import { About } from './components/About/About'
 import { AppStore } from './App.store'
@@ -20,18 +20,14 @@ export class App extends React.Component<IAppProps> {
       <Provider store={store}>
         <BrowserRouter>
           <Header store={store} />
-          <>
+          <Switch>
             <Route exact={true} path="/">
               <Home store={store} />
             </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/order">
-              <Order />
-            </Route>
+            <Route path="/about" component={About} />
+            <Route path="/order" component={Order} />
             <Route path="/contacts" component={Contacts} />
-          </>
+          </Switch>
         </BrowserRouter>
       </Provider>
     )
