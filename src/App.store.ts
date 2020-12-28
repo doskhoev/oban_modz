@@ -81,58 +81,6 @@ export class AppStore {
           { title: '3000 г.', price: 2500 },
         ],
       },
-      {
-        id: '4',
-        title: 'Майский Мёд',
-        description: 'С горчинкой',
-        imageUrl: '/img/bee.png',
-        types: [
-          { title: '500 г.', price: 600 },
-          { title: '1000 г.', price: 1000 },
-        ],
-      },
-      {
-        id: '5',
-        title: 'Горный Мёд',
-        description: 'Очень полезный',
-        imageUrl: '/img/bee.png',
-        types: [
-          { title: '500 г.', price: 600 },
-          { title: '1000 г.', price: 1000 },
-          { title: '3000 г.', price: 2500 },
-        ],
-      },
-      {
-        id: '6',
-        title: 'Майский Мёд',
-        description: 'С горчинкой',
-        imageUrl: '/img/bee.png',
-        types: [
-          { title: '500 г.', price: 600 },
-          { title: '1000 г.', price: 1000 },
-        ],
-      },
-      {
-        id: '7',
-        title: 'Горный Мёд',
-        description: 'Очень полезный',
-        imageUrl: '/img/bee.png',
-        types: [
-          { title: '500 г.', price: 600 },
-          { title: '1000 г.', price: 1000 },
-          { title: '3000 г.', price: 2500 },
-        ],
-      },
-      {
-        id: '8',
-        title: 'Горный Мёд',
-        description: 'Очень полезный',
-        types: [
-          { title: '500 г.', price: 600 },
-          { title: '1000 г.', price: 1000 },
-          { title: '3000 г.', price: 2500 },
-        ],
-      },
     ]
     return Promise.resolve(items)
   }
