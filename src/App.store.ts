@@ -76,14 +76,14 @@ export class AppStore {
         description: 'Очень полезный',
         imageUrl: '/img/bee.png',
         types: [
-          { title: '500 г.', price: 600 },
+          { title: '500 г.', price: 700 },
           { title: '1000 г.', price: 1000 },
           { title: '3000 г.', price: 2500 },
         ],
       },
     ]
     return Promise.resolve(items)
-  }
+  } 
 
   // @action.bound
   // public upVersion() {
