@@ -1,14 +1,12 @@
-import React from 'react'
+import * as React from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { AppStore } from '../../App.store'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import { logoSvg } from '../../resources'
 import { Basket } from './Basket'
 
-export interface IHeaderProps {
-  store: AppStore
-}
+export interface IHeaderProps {}
 
+@inject('store')
 @observer
 export class Header extends React.Component<IHeaderProps> {
   private menu = [

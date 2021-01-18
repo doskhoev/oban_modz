@@ -1,14 +1,15 @@
 import { observable, action, computed } from 'mobx'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
-import { IItem, IBasketItem } from './App.interface'
+import 'firebase/storage'
+import { IItem } from './App.interface'
 
 export class AppStore {
   @observable
   public items: IItem[] = []
 
   @observable
-  public basketItems: IBasketItem[] = []
+  public basketItems: IItem[] = []
 
   constructor() {
     this.initFirebase()
@@ -21,27 +22,20 @@ export class AppStore {
   @computed
   public get finalSum() {
     return this.basketItems.reduce((sum, cur) => {
-      return sum + cur.type.price
+      return sum + cur.price
     }, 0)
   }
 
   @action.bound
-  public addItemToBasket(item: IBasketItem) {
+  public addItemToBasket(item: IItem) {
     this.basketItems.push(item)
   }
 
   @action.bound
-  public removeItemFromBasket(
-    item: IBasketItem,
-    removeAllItems: boolean = false
-  ) {
-    const basketItems = this.basketItems.filter(
-      i => i.id === item.id && i.type.title === item.type.title
-    )
+  public removeItemFromBasket(item: IItem, removeAllItems: boolean = false) {
+    const basketItems = this.basketItems.filter(i => i.id === item.id)
     if (removeAllItems) {
-      this.basketItems = this.basketItems.filter(
-        i => i.id !== item.id || i.type.title !== item.type.title
-      )
+      this.basketItems = this.basketItems.filter(i => i.id !== item.id)
     } else if (basketItems.length > 1) {
       const index = this.basketItems.indexOf(basketItems[0])
       this.basketItems.splice(index, 1)
@@ -56,34 +50,21 @@ export class AppStore {
         title: 'Липовый Мёд',
         imageUrl: '/img/bee.png',
         description: 'Очень вкусный',
-        types: [
-          { title: 'Пол кило', price: 600 },
-          { title: 'Кило', price: 1000 },
-          { title: '3 КГ', price: 2500 },
-          { title: '5000 г.', price: 4000 },
-          { title: '10000 г.', price: 7500 },
-        ],
+        price: 2500,
       },
       {
         id: '2',
         title: 'Майский Мёд',
         imageUrl: '/img/bee.png',
         description: 'С горчинкой',
-        types: [
-          { title: '500 г.', price: 600 },
-          { title: '1000 г.', price: 1000 },
-        ],
+        price: 2800,
       },
       {
         id: '3',
         title: 'Горный Мёд',
         description: 'Очень полезный',
         imageUrl: '/img/bee.png',
-        types: [
-          { title: '500 г.', price: 600 },
-          { title: '1000 г.', price: 1000 },
-          { title: '3000 г.', price: 2500 },
-        ],
+        price: 3000,
       },
     ]
     return Promise.resolve(items)
@@ -106,8 +87,9 @@ export class AppStore {
     }
     firebase.initializeApp(firebaseConfig)
     const db = firebase.firestore().collection('products')
+
     db.get().then(query => {
-      query.forEach(doc => console.log(doc.data()))
+      this.items = query.docs.map(doc => doc.data()) as IItem[]
     })
   }
 }

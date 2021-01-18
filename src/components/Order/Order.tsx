@@ -1,8 +1,7 @@
-import React from 'react'
+import * as React from 'react'
 import { AppStore } from '../../App.store'
 import { observer, inject } from 'mobx-react'
 import { action } from 'mobx'
-import { IBasketItem } from '../../App.interface'
 import { OrderItem, IOrderItemProps } from './OrderItem'
 
 interface ITmp {
@@ -30,28 +29,24 @@ export class Order extends React.Component<IOrderProps> {
 
   @action.bound
   private onAddCount(item: IOrderItemProps) {
-    this.store.addItemToBasket(item as IBasketItem)
+    this.store.addItemToBasket(item)
   }
 
   @action.bound
   private onRemoveCount(item: IOrderItemProps) {
-    this.store.removeItemFromBasket(item as IBasketItem)
+    this.store.removeItemFromBasket(item)
   }
 
   @action.bound
   private onRemoveItem(item: IOrderItemProps) {
-    this.store.removeItemFromBasket(item as IBasketItem, true)
+    this.store.removeItemFromBasket(item, true)
   }
 
   render() {
-    const items = this.store.basketItems
-      .sort((a, b) =>
-        a.title + a.type.title < b.title + b.type.title ? -1 : 1
-      )
+    const items = this.store.basketItems.slice()
+      .sort((a, b) => (a.id < b.id ? -1 : 1))
       .reduce((arr, cur) => {
-        const findItem = arr.find(
-          item => item.title === cur.title && item.type.title === cur.type.title
-        )
+        const findItem = arr.find(item => item.id === cur.id)
         if (findItem) {
           findItem.count += 1
         } else {

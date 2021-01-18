@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Home } from './components/MainPage/Home'
 import { About } from './components/About/About'
@@ -19,7 +19,7 @@ export class App extends React.Component<IAppProps> {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <Header store={store} />
+          <Header />
           <Switch>
             <Route exact={true} path="/">
               <Home store={store} />

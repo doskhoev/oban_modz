@@ -1,10 +1,10 @@
-import React from 'react'
-import { IBasketItem } from '../../App.interface'
+import * as React from 'react'
 import { littleArrowUp, littleArrowDown, trash } from '../../resources'
 import { action } from 'mobx'
 import { observer } from 'mobx-react'
+import { IItem } from '../../App.interface'
 
-export interface IOrderItemProps extends IBasketItem {
+export interface IOrderItemProps extends IItem {
   count: number
   addCount?: (item: IOrderItemProps) => void
   removeCount?: (item: IOrderItemProps) => void
@@ -35,15 +35,14 @@ export class OrderItem extends React.Component<IOrderItemProps> {
   }
 
   render() {
-    const { title, description, type, count } = this.props
+    const { title, description, price, count } = this.props
     return (
       <div className="flex items-center rounded bg-indigo-400 m-1 p-2 text-white">
-        <div className="w-1/4 text-lg ml-2">{title}</div>
-        <div className="w-1/4 font-hairline">{description}</div>
-        <div className="w-1/4">{type.title}</div>
-        <div className="w-1/12">{type.price} ₽ за шт.</div>
-        <div className="w-1/12">{type.price * count} ₽</div>
-        <div className="w-1/12 flex justify-between">
+        <div className="w-1/5 text-lg ml-2">{title}</div>
+        <div className="w-1/5 font-hairline">{description}</div>
+        <div className="w-1/5">{price} ₽ за шт.</div>
+        <div className="w-1/5">{price * count} ₽</div>
+        <div className="w-1/5 flex justify-between">
           <div className="flex items-center">
             {count} шт.
             <div className="flex flex-col justify-center ml-1">
