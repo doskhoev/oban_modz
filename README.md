@@ -1,1 +1,1 @@
-## first store
+## react js + mobx + firebase
