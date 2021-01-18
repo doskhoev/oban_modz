@@ -13,10 +13,6 @@ export class AppStore {
 
   constructor() {
     this.initFirebase()
-
-    // this.getItems().then(res => {
-    //   this.items = res
-    // })
   }
 
   @computed
@@ -40,34 +36,6 @@ export class AppStore {
       const index = this.basketItems.indexOf(basketItems[0])
       this.basketItems.splice(index, 1)
     }
-  }
-
-  @action.bound
-  public getItems(): Promise<IItem[]> {
-    const items: IItem[] = [
-      {
-        id: '1',
-        title: 'Липовый Мёд',
-        imageUrl: '/img/bee.png',
-        description: 'Очень вкусный',
-        price: 2500,
-      },
-      {
-        id: '2',
-        title: 'Майский Мёд',
-        imageUrl: '/img/bee.png',
-        description: 'С горчинкой',
-        price: 2800,
-      },
-      {
-        id: '3',
-        title: 'Горный Мёд',
-        description: 'Очень полезный',
-        imageUrl: '/img/bee.png',
-        price: 3000,
-      },
-    ]
-    return Promise.resolve(items)
   }
 
   // @action.bound
