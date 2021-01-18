@@ -42,19 +42,19 @@ export class Card extends React.Component<ICardProps> {
           <p className="text-gray-700 text-base text-center mb-2">
             {this.props.description}
           </p>
-          <div className="flex flex-wrap justify-center">
+          {/* <div className="flex flex-wrap justify-center">
             Цена: {this.props.price} ₽
-          </div>
+          </div> */}
 
-          {/* <div
+          <div
             className={
               'absolute top-0 left-0 w-1/3 text-center p-1 text-xl bg-gray-500 font-semibold text-white mr-auto rounded-br-xl'
             }
           >
             {this.props.price} ₽
-          </div> */}
+          </div>
 
-          <div className="absolute bottom-0 right-0 flex items-center justify-center m-2">
+          <div className="flex items-center justify-center m-2">
             <button
               className="bg-orange-500 hover:bg-orange-600 text-white py-1 px-2 rounded-xl focus:outline-none"
               onClick={() => this.onClickBasket()}

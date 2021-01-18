@@ -37,7 +37,7 @@ export class OrderItem extends React.Component<IOrderItemProps> {
   render() {
     const { title, description, price, count } = this.props
     return (
-      <div className="flex items-center rounded bg-indigo-400 m-1 p-2 text-white">
+      <div className="flex items-center rounded-xl bg-green-500 m-1 p-2 text-white">
         <div className="w-1/5 text-lg ml-2">{title}</div>
         <div className="w-1/5 font-hairline">{description}</div>
         <div className="w-1/5">{price} ₽ за шт.</div>
